@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa Universitario</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script type="module" src="/js/modelviewer.min.js"></script>
+</head>
+<body id="Mapa">
+    
+    <!-- Seccion de Navbar -->
+    
+    <div id="backgroundNavbar" class="bg__menu desaparecer"></div>
+    
+    <nav id="navbar" class="menuBar menuBar--disable">
+        <div class="menuBar__head">
+            <button id="abrirNavbar">
+                <div class="line1"></div>
+                <div class="line2"></div>
+            </button>
+            <button class="desaparecer" id="cerrarNavbar"><svg xmlns="http://www.w3.org/2000/svg" height="48" width="48"><path d="m12.45 37.65-2.1-2.1L21.9 24 10.35 12.45l2.1-2.1L24 21.9l11.55-11.55 2.1 2.1L26.1 24l11.55 11.55-2.1 2.1L24 26.1Z"/></svg></button>
+            <h2>Mapa de la Universidad</h2>
+        </div>
+        <div  class="links__menuBar desaparecer">
+            <a href="qrCam.html"><img src="icons/qr.svg" alt=""> Camara QR</a>
+            <a href="mapa.html"><img src="icons/map.svg" alt=""> Mapa UTCGG</a>
+            <a href="cursos&talleres.html"><img src="icons/course.svg" alt=""> Clubs & Talleres</a>
+            <a href="reglamento.html"><img src="icons/rules.svg" alt=""> Reglamento UTCGG</a>
+            <a href="https://utcgg.edu.mx/"><img src="icons/web.svg" alt=""> Sitio UTCGG</a>
+        </div>
+    </nav>
+    <!-- fin del navbar -->
+    
+    <!-- Mapa de la Universidad -->
+    <div class="grid">
+        <main class="Mapa__Contenedor">
+            <style>
+                model-viewer{
+                    height: 460px;
+                }
+                #btn3dMap{
+                    position: relative;
+                    right: 0;
+                    top: 30px;
+                    left: 20px;
+                }
+            </style>
+            <img id="map2D" src="img/MapaUT.png" alt="Mapa Universitario">
+            <model-viewer
+                id="map3D"
+                alt="Modelo 3D del Mapa de la UTCGG"
+                poster = "./img/utcgglogo.png"
+                src="./3dmodels/Mapa.glb"
+                orientation="140deg 180deg 120deg"
+                camera-controls
+                >
+            </model-viewer>
+            <button id="btn3dMap">3D</button>
+        </main>
+    
+        <!-- Leyenda de la Universidad -->
+        <section class="Mapa__Leyenda">
+            <article id="edificioA" onclick="desplegar('A')" class="ContenedorEdificio">
+                <div class="heading">
+                    <h3>Edificio A</h3>
+                    <div class="colorEdificio">
+                        <img class="iconArrow" src="icons/arrowExpand.svg">
+                    </div>
+                </div>
+                <ul class="lista__edificio">
+                    <li>Rectoria</li>
+                    <li>Promoción y capacitación</li>
+                    <li>Caja general</li>
+                    <li>Recursos Humanos</li>
+                    <li>Centro de Idiomas</li>
+                    <li>Secretaría Académica</li>
+                </ul>
+            </article>
+    
+            <article id="edificioB" onclick="desplegar('B')" class="ContenedorEdificio">
+                <div class="heading">
+                    <h3>Edificio B</h3>
+                    <div class="colorEdificio">
+                        <img class="iconArrow" src="icons/arrowExpand.svg">
+                    </div>
+                </div>
+                <ul class="lista__edificio">
+                    <li>P.E. Mantenimiento Industrial</li>
+                </ul>
+            </article>
+    
+            <article id="edificioC" onclick="desplegar('C')" class="ContenedorEdificio">
+                <div class="heading">
+                    <h3>Edificio C</h3>
+                    <div class="colorEdificio">
+                        <img class="iconArrow" src="icons/arrowExpand.svg">
+                    </div>
+                </div>
+                <ul class="lista__edificio">
+                    <li>Servicios escolares</li>
+                    <li>Servicios de apoyo al estudiante</li>
+                    <li>Incubadora empresarial</li>
+                </ul>
+            </article>
+    
+            <article id="edificioD" onclick="desplegar('D')" class="ContenedorEdificio">
+                <div class="heading">
+                    <h3>Edificio D</h3>
+                    <div class="colorEdificio">
+                        <img class="iconArrow" src="icons/arrowExpand.svg">
+                    </div>
+                </div>
+                <ul class="lista__edificio">
+                    <li>P.E. Procesos alimentarios</li>
+                </ul>
+            </article>
+    
+            <article id="edificioE" onclick="desplegar('E')" class="ContenedorEdificio">
+                <div class="heading">
+                    <h3>Edificio E</h3>
+                    <div class="colorEdificio">
+                        <img class="iconArrow" src="icons/arrowExpand.svg">
+                    </div>
+                </div>
+                <ul class="lista__edificio">
+                    <li>P.E. Metal mecánica</li>
+                    <li>P.E. Gestión del capital humano</li>
+                    <li>Centro de capacitación</li>
+                </ul>
+            </article>
+    
+            <article id="edificioF" onclick="desplegar('F')" class="ContenedorEdificio">
+                <div class="heading">
+                    <h3>Edificio F</h3>
+                    <div class="colorEdificio">
+                        <img class="iconArrow" src="icons/arrowExpand.svg">
+                    </div>
+                </div>
+                <ul class="lista__edificio">
+                    <li>P.E. Gestión y desarrollo turístio</li>
+                </ul>
+            </article>
+    
+            <article id="edificioG" onclick="desplegar('G')" class="ContenedorEdificio">
+                <div class="heading">
+                    <h3>Edificio G</h3>
+                    <div class="colorEdificio">
+                        <img class="iconArrow" src="icons/arrowExpand.svg">
+                    </div>
+                </div>
+                <ul class="lista__edificio">
+                    <li>P.E. Tecnologías de la información</li>
+                </ul>
+            </article>
+    
+            <article id="edificioH" onclick="desplegar('H')" class="ContenedorEdificio">
+                <div class="heading">
+                    <h3>Edificio H</h3>
+                    <div class="colorEdificio">
+                        <img class="iconArrow" src="icons/arrowExpand.svg">
+                    </div>
+                </div>
+                <ul class="lista__edificio">
+                    <li>Taller de mecánica</li>
+                </ul>
+            </article>
+    
+            <article id="edificioI" onclick="desplegar('I')" class="ContenedorEdificio">
+                <div class="heading">
+                    <h3>Edificio I</h3>
+                    <div class="colorEdificio">
+                        <img class="iconArrow" src="icons/arrowExpand.svg">
+                    </div>
+                </div>
+                <ul class="lista__edificio">
+                    <li>P.E. Logística internacional</li>
+                    <li>P.E. Gastronomía</li>
+                    <li>P.E. Energías Renovables</li>
+                </ul>
+            </article>
+    
+            <article id="edificioJ" onclick="desplegar('J')" class="ContenedorEdificio">
+                <div class="heading">
+                    <h3>Edificio J</h3>
+                    <div class="colorEdificio">
+                        <img class="iconArrow" src="icons/arrowExpand.svg">
+                    </div>
+                </div>
+                <ul class="lista__edificio">
+                    <li>Taller de gastronomía</li>
+                </ul>
+            </article>
+    
+        </section>
+    </div>
+    
+    <script src="js/navbar.js"></script> <!--Import js Navbar-->
+    <script>
+        let map2d,map3d,btnMap;
+        map2d = document.querySelector('#map2D');
+        map3d = document.querySelector('#map3D');
+        btnMap = document.querySelector('#btn3dMap');
+
+        map3d.style.display = "none";
+
+        
+        btnMap.addEventListener('click', () => {
+            if(btnMap.textContent === "3D"){
+                btnMap.textContent = "2D"
+                map2d.style.display = "none"
+                map3d.style.display = "block"
+            }else if(btnMap.textContent === "2D"){
+                btnMap.textContent = "3D";
+                map2d.style.display = "block"
+                map3d.style.display = "none"
+            }
+        })
+    </script>
+    <script>
+        function desplegar(letra){
+            let edificio =`#edificio${letra}`;
+            let listAbierto = document.querySelector(`${edificio} ul`).classList.contains('expandir');
+            if(listAbierto == false){
+                abrirEdificio(edificio);
+            }else{
+                cerrarEdificio(edificio)
+            }
+        }
+        function abrirEdificio(edificio){
+            let list = document.querySelector(`${edificio} ul`);
+            let icon = document.querySelector(`${edificio} .iconArrow`);
+            icon.src="icons/arrowClose.svg"
+            list.classList.add('expandir');
+
+        }
+        function cerrarEdificio(edificio){
+            let list = document.querySelector(`${edificio} ul`);
+            let icon = document.querySelector(`${edificio} .iconArrow`);
+            icon.src="icons/arrowExpand.svg"
+            list.classList.remove('expandir');
+        }
+    </script>
+
+</body>
+</html>

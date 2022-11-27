@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="./js/qrcodejs.js"></script>
+    <script type="module" src="/js/modelviewer.min.js"></script> <!-- modulo 3d -->
+    <title>Escaner QR</title>
+</head>
+
+<body>
+
+
+
+  <!-- Seccion de Navbar -->
+
+  <div id="backgroundNavbar" class="bg__menu desaparecer">
+  </div>
+
+    <nav id="navbar" class="menuBar menuBar--disable">
+      <div class="menuBar__head">
+        <button id="abrirNavbar">
+          <div class="line1"></div>
+          <div class="line2"></div>
+        </button>
+        <button class="desaparecer" id="cerrarNavbar"><svg xmlns="http://www.w3.org/2000/svg" height="48" width="48"><path d="m12.45 37.65-2.1-2.1L21.9 24 10.35 12.45l2.1-2.1L24 21.9l11.55-11.55 2.1 2.1L26.1 24l11.55 11.55-2.1 2.1L24 26.1Z"/></svg></button>
+        <h2>Escaner QR</h2>
+      </div>
+      <div  class="links__menuBar desaparecer">
+        <a href="qrCam.html"><img src="icons/qr.svg" alt=""> Camara QR</a>
+        <a href="mapa.html"><img src="icons/map.svg" alt=""> Mapa UTCGG</a>
+        <a href="cursos&talleres.html"><img src="icons/course.svg" alt=""> Clubs & Talleres</a>
+        <a href="reglamento.html"><img src="icons/rules.svg" alt=""> Reglamento UTCGG</a>
+        <a href="https://utcgg.edu.mx/"><img src="icons/web.svg" alt=""> Sitio UTCGG</a>
+      </div>
+    </nav>
+
+    <!-- fin del navbar -->
+
+
+    <div class="space"></div>
+
+    <!-- Aqui empieza el modal -->
+    
+    <div id="modal">
+      <div class="modal__header">
+        <h3 id="modal__titulo">Figura</h3>
+        <button id="closeModal" onclick="cerrarModal()"><svg height="16px" id="Layer_1" style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" width="16px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M443.6,387.1L312.4,255.4l131.5-130c5.4-5.4,5.4-14.2,0-19.6l-37.4-37.6c-2.6-2.6-6.1-4-9.8-4c-3.7,0-7.2,1.5-9.8,4  L256,197.8L124.9,68.3c-2.6-2.6-6.1-4-9.8-4c-3.7,0-7.2,1.5-9.8,4L68,105.9c-5.4,5.4-5.4,14.2,0,19.6l131.5,130L68.4,387.1  c-2.6,2.6-4.1,6.1-4.1,9.8c0,3.7,1.4,7.2,4.1,9.8l37.4,37.6c2.7,2.7,6.2,4.1,9.8,4.1c3.5,0,7.1-1.3,9.8-4.1L256,313.1l130.7,131.1  c2.7,2.7,6.2,4.1,9.8,4.1c3.5,0,7.1-1.3,9.8-4.1l37.4-37.6c2.6-2.6,4.1-6.1,4.1-9.8C447.7,393.2,446.2,389.7,443.6,387.1z"/></svg></button>
+      </div>
+      
+      <div class="modal__body">
+        <model-viewer
+          id="figura3d"
+          src="/3dmodels/Logo UTCGG.glb"
+          alr="Modelo 3d"
+          camera-controls
+          environment-image="/3dmodels/background.webp"
+          autoplay
+          exposure = "1.5"
+          shadow-intensity="1"
+          ar
+          ></model-viewer>
+          <div id="info_Carrera"></div>
+        </div>
+        
+        <!-- <div class="modal__footer">
+          <button>Informacion</button>
+          <button>Acción</button>
+        </div> -->
+        
+      </div>
+      
+      <!-- Aqui acaba el modal -->
+
+
+       <div class="scann-contenedor">
+         <div  id="reader"></div>
+         <div id="resultado"></div>
+       </div>
+
+       <a id="generarQR" href="./generadorQR.html"><span>Generar un QR</span><img src="./icons/qr.svg" alt=""></a>
+   
+
+      
+      <!-- Import Script de Navbar -->
+    <script src="js/navbar.js"></script>
+    <!-- Import Script de funciones -->
+    <script src="./js/QRCodeFuncion.js"></script>
+
+
+    
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+    <style>
+        html{
+            height: 100vh;
+        }
+        body{
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 2rem;
+            align-items: center;
+            text-align: center;
+        }
+        #heading a{
+            display: block;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            border-radius: 1rem;
+            color: rgb(227, 37, 37);
+            padding: 1rem;
+            border: 2px solid;
+            transition: all .3s ease;
+        }
+        #heading a:hover{
+            background-color: red;
+            color: #161616;
+            border: none;
+        }
+        #QRcontent{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 1rem;
+        }
+        main{
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        main select{
+            background: none;
+            color: rgb(161, 161, 161);
+            border: solid 1px rgb(161, 161, 161);
+            border-radius: 5px;
+        }
+        main select option{
+            color: #141414;
+        }
+        main button{
+            margin-top: 2rem;
+
+        }
+        a#qrDownload{
+            color: white;
+            transition: all .3s ease-in;
+        }
+        a#qrDownload:hover{
+            font-size: 1.4rem;
+        }
+        p{
+            width: 200px;
+            margin: auto;
+            color: rgb(124, 124, 124);
+            font-size: .8rem;
+            line-height: 1.5;
+            font-style: italic;
+        }
+    </style>
+    
+    
+    <section id="heading">
+        <a href="./qrCam.html">Regresar</a>
+        <h1>Generador de QR</h1>
+    </section>
+
+    
+    <section id="QRcontent"></section>
+    
+    
+    <main>
+        <label for="inpQR">Selecciona una Carrera</label>
+        <select name="carreras" id="inpQR">
+            <option style="text-align: center;" disabled selected>--- Seleccionar ---</option>
+            <option value="Desarrollo e Innovación Empresarial">Desarrollo e Innovación Empresarial</option>
+            <option value="Mantenimiento Industrial">Mantenimiento Industrial</option>
+            <option value="Metal Mecánica">Metal Mecánica</option>
+            <option value="Procesos Alimentarios">Procesos Alimentarios</option>
+            <option value="Tecnologías de la Información">Tecnologías de la Información</option>
+            <option value="Logística Internacional">Logística Internacional</option>
+            <option value="Gestión y Desarrollo Turístico">Gestión y Desarrollo Turístico</option>
+            <option value="Gastronomia">Gastronomia</option>
+            <option value="Energías Renovables">Energías Renovables</option>
+            <option value="Rectoria">Rectoría</option>
+            <option value="Biblioteca">Biblioteca</option>
+            <option value="Enfermeria">Enfermería</option>
+        </select>
+        <button id="btnGenerador">Click para Generar</button>
+        <p>Si necesitas un QR para algúin proyecto o demostración escolar, puedes generarlo desde esté sitio</p>
+    </main>
+
+
+    <script>
+
+
+        let inputQR = document.querySelector('#inpQR');
+        let btnGen = document.querySelector('#btnGenerador');
+        let contenedorQR = document.querySelector('#QRcontent');
+        btnGen.addEventListener('click', () => {
+            console.log(`http://api.qrserver.com/v1/create-qr-code/?data=${inputQR.value}&size=100x100.png`);
+            contenedorQR.innerHTML=`
+                <img src="http://api.qrserver.com/v1/create-qr-code/?data=${inputQR.value}&size=100x100.png" alt="QR">
+                <a href="http://api.qrserver.com/v1/create-qr-code/?data=${inputQR.value}&size=100x100.png" id="qrDownload" download="qr.png">Descargar</a>
+            `
+        })
+    </script>
+
+</body>
+</html> 
