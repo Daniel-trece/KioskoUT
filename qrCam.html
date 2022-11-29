@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <script src="./js/qrcodejs.js"></script>
+    <link rel="manifest" href="./manifest.json">
     <script type="module" src="/js/modelviewer.min.js"></script> <!-- modulo 3d -->
     <title>Escaner QR</title>
 </head>
@@ -89,7 +90,17 @@
     <!-- Import Script de funciones -->
     <script src="./js/QRCodeFuncion.js"></script>
 
-
+<script>
+        if('serviceWorker' in navigator){
+            window.addEventListener('load', function () {
+                navigator.serviceWorker.register('./service-worker.js').then(function(registration) {
+                    console.log('Service Worker Registrado')
+                }, function (err) {
+                    console.log('Service Worker Fallo al Registar', err);
+                })
+            })
+        }
+    </script>
     
 </body>
 </html>
