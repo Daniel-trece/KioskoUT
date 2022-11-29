@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mapa Universitario</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="manifest" href="./manifest.json">
     <script type="module" src="/js/modelviewer.min.js"></script>
 </head>
 <body id="Mapa">
@@ -240,6 +241,17 @@
             let icon = document.querySelector(`${edificio} .iconArrow`);
             icon.src="icons/arrowExpand.svg"
             list.classList.remove('expandir');
+        }
+    </script>
+        <script>
+        if('serviceWorker' in navigator){
+            window.addEventListener('load', function () {
+                navigator.serviceWorker.register('./service-worker.js').then(function(registration) {
+                    console.log('Service Worker Registrado')
+                }, function (err) {
+                    console.log('Service Worker Fallo al Registar', err);
+                })
+            })
         }
     </script>
 
