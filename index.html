@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="manifest" href="manifest.json">
+   <link rel="manifest" href="./manifest.json">
     <title>HomePage</title>
 </head>
 <body id="homepage">
@@ -35,6 +35,18 @@
     <section class="footer">
         <a href="https://utcgg.edu.mx/" class="btnPageUT">Pagina de la Universidad</a>
     </section>
+    
+        <script>
+        if('serviceWorker' in navigator){
+            window.addEventListener('load', function () {
+                navigator.serviceWorker.register('./service-worker.js').then(function(registration) {
+                    console.log('Service Worker Registrado')
+                }, function (err) {
+                    console.log('Service Worker Fallo al Registar', err);
+                })
+            })
+        }
+    </script>
 
 
 
