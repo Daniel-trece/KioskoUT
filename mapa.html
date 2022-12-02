@@ -6,11 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mapa Universitario</title>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="manifest" href="./manifest.json">
     <script type="module" src="/js/modelviewer.min.js"></script>
 </head>
 <body id="Mapa">
-    
+
     <!-- Seccion de Navbar -->
     
     <div id="backgroundNavbar" class="bg__menu desaparecer"></div>
@@ -42,13 +41,20 @@
                     height: 460px;
                 }
                 #btn3dMap{
+                    background: rgb(8, 111, 255);
+                    display: block;
+                    margin: auto;
+                    margin-bottom: 2rem;
                     position: relative;
                     right: 0;
                     top: 30px;
                     left: 20px;
                 }
+                #btn3dMap:hover{
+                    box-shadow: 0 0 12px rgba(8, 111, 255, 0.5);
+                }
             </style>
-            <img id="map2D" src="img/MapaUT.png" alt="Mapa Universitario">
+            <img id="map2D" loading="lazy" src="img/MapaUT.png" alt="Mapa Universitario">
             <model-viewer
                 id="map3D"
                 alt="Modelo 3D del Mapa de la UTCGG"
@@ -58,7 +64,7 @@
                 camera-controls
                 >
             </model-viewer>
-            <button id="btn3dMap">3D</button>
+            <button id="btn3dMap">Ver en 3D</button>
         </main>
     
         <!-- Leyenda de la Universidad -->
@@ -208,12 +214,12 @@
 
         
         btnMap.addEventListener('click', () => {
-            if(btnMap.textContent === "3D"){
-                btnMap.textContent = "2D"
+            if(btnMap.textContent === "Ver en 3D"){
+                btnMap.textContent = "Ver en 2D"
                 map2d.style.display = "none"
                 map3d.style.display = "block"
-            }else if(btnMap.textContent === "2D"){
-                btnMap.textContent = "3D";
+            }else if(btnMap.textContent === "Ver en 2D"){
+                btnMap.textContent = "Ver en 3D";
                 map2d.style.display = "block"
                 map3d.style.display = "none"
             }
@@ -241,17 +247,6 @@
             let icon = document.querySelector(`${edificio} .iconArrow`);
             icon.src="icons/arrowExpand.svg"
             list.classList.remove('expandir');
-        }
-    </script>
-        <script>
-        if('serviceWorker' in navigator){
-            window.addEventListener('load', function () {
-                navigator.serviceWorker.register('./service-worker.js').then(function(registration) {
-                    console.log('Service Worker Registrado')
-                }, function (err) {
-                    console.log('Service Worker Fallo al Registar', err);
-                })
-            })
         }
     </script>
 
